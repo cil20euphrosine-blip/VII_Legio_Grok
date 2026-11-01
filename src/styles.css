@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #14120e;
+  --color-panel: #1e1a14;
+  --color-panel-2: #2a241c;
+  --color-line: #3d3428;
+  --color-parchment: #e7dcc4;
+  --color-fade: #a39882;
+  --color-gold: #c6a15a;
+  --color-gold-dim: #8c6d32;
+  --color-seal: #8e2f2f;
+  --color-seal-dim: #5c1e1e;
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-sans: "Source Sans 3", "Segoe UI", sans-serif;
+  --radius-sm: 0.25rem;
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+  html,
+  body {
+    height: 100%;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-parchment);
+    font-family: var(--font-sans);
+    line-height: 1.45;
+  }
+}
+
+@utility min-h-tap {
+  min-height: 2.75rem;
+}
+
+@utility h-app {
+  height: 100dvh;
+}
+
+@utility max-h-dock {
+  max-height: 48vh;
+}
+
+@utility pt-safe {
+  padding-top: max(0.75rem, env(safe-area-inset-top));
+}
+
+@utility pb-safe {
+  padding-bottom: max(0.75rem, env(safe-area-inset-bottom));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 180ms ease;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.35rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
